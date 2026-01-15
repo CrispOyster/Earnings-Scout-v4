@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Earnings Scout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/typography@0.5.10/src/index.min.js"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+              mono: ['JetBrains Mono', 'Menlo', 'monospace'],
+            },
+            colors: {
+              zinc: {
+                850: '#1f2023',
+                950: '#09090b',
+              }
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-in-out',
+              'slide-up': 'slideUp 0.4s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(10px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              shimmer: {
+                '0%': { transform: 'translateX(-150%)' },
+                '100%': { transform: 'translateX(350%)' }
+              }
+            },
+          },
+        },
+        plugins: [
+          function({ addBase, theme }) {
+            // Include Tailwind Typography plugin manually if CDN fails or basic config
+          }
+        ],
+      }
+    </script>
+    <style>
+      /* Fallback for typography */
+      body { background-color: #f4f4f5; }
+      .prose { max-width: 65ch; }
+      .prose h1, .prose h2, .prose h3 { color: #18181b; font-weight: 700; letter-spacing: -0.025em; }
+      .prose p { margin-bottom: 1em; line-height: 1.7; color: #3f3f46; }
+      .prose strong { color: #18181b; font-weight: 600; }
+      .prose a { color: #2563eb; text-decoration: none; font-weight: 500; }
+      .prose a:hover { text-decoration: underline; }
+      .prose blockquote { border-left-color: #e4e4e7; color: #52525b; }
+      
+      /* Scrollbar */
+      ::-webkit-scrollbar { width: 8px; height: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: #d4d4d8; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #a1a1aa; }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.32.0",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^10.1.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-zinc-100 text-zinc-900 antialiased selection:bg-indigo-100 selection:text-indigo-900">
+    <div id="root"></div>
+  </body>
+</html>

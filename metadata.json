@@ -1,0 +1,5 @@
+{
+  "name": "Earnings Scout with inforgraphic v4 redesign",
+  "description": "A financial research tool that uses Google Search Grounding to find and summarize the latest stock earnings reports and call transcripts.",
+  "requestFramePermissions": []
+}

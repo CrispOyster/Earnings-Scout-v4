@@ -16,7 +16,12 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
         components={{
           h1: ({node, ...props}) => <h1 className="text-2xl font-bold mt-8 mb-4 text-zinc-900 tracking-tight" {...props} />,
           h2: ({node, ...props}) => <h2 className="text-xl font-bold mt-8 mb-4 text-zinc-900 border-b border-zinc-100 pb-2 tracking-tight" {...props} />,
-          h3: ({node, ...props}) => <h3 className="text-lg font-bold mt-6 mb-3 text-zinc-800 tracking-tight" {...props} />,
+          h3: ({node, ...props}) => (
+            <h3 
+              className="text-lg font-bold mt-10 mb-4 text-zinc-900 bg-zinc-50 p-4 rounded-xl border-l-4 border-indigo-500 shadow-sm" 
+              {...props} 
+            />
+          ),
           p: ({node, ...props}) => <p className="mb-4 leading-relaxed text-zinc-600" {...props} />,
           li: ({node, ...props}) => <li className="mb-1 text-zinc-600" {...props} />,
           strong: ({node, ...props}) => <strong className="font-bold text-zinc-900" {...props} />,

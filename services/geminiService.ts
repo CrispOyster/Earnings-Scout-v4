@@ -103,9 +103,16 @@ export const searchEarningsData = async (ticker: string): Promise<SearchResult> 
     ## Part 2: The Trade Plan (Premium)
     Tone: "The Portfolio Manager" (Precise, professional, tactical).
     
-    ### The Blueprint (3 Trade Structures)
-    Provide 3 actionable trade ideas (e.g., The Safe Bull, The Aggressive Speculator, The Income Generator).
-    For EACH, provide: Strategy and The "Why". Be general, do not include any specific to prevent legal risk.
+    Structure the response with 3 distinct trade ideas. You MUST use "###" headers for each trade to ensure correct formatting.
+
+    ### Trade Idea #1: The Safe Play
+    (Provide a lower risk strategy, e.g. Covered Call, Cash Secured Put, or Buy & Hold. Include Strategy & Why).
+
+    ## Trade Idea #2: The Aggressive Play
+    (Provide a higher risk/reward strategy, e.g. Long Calls, Spreads, or Breakout Plays. Include Strategy & Why).
+
+    ## Trade Idea #3: The Hedge / Income Play
+    (Provide a strategy for income or protection. Include Strategy & Why).
     `;
 
     const response = await ai.models.generateContent({

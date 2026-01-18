@@ -51,13 +51,36 @@
     <style>
       /* Fallback for typography */
       body { background-color: #f4f4f5; }
-      .prose { max-width: 65ch; }
-      .prose h1, .prose h2, .prose h3 { color: #18181b; font-weight: 700; letter-spacing: -0.025em; }
-      .prose p { margin-bottom: 1em; line-height: 1.7; color: #3f3f46; }
-      .prose strong { color: #18181b; font-weight: 600; }
-      .prose a { color: #2563eb; text-decoration: none; font-weight: 500; }
-      .prose a:hover { text-decoration: underline; }
-      .prose blockquote { border-left-color: #e4e4e7; color: #52525b; }
+      
+      /* Optimized for "Digestibility" - approx 65-75 chars per line on desktop */
+      .prose { 
+        max-width: 100%; 
+        font-size: 16px;
+      }
+      
+      .prose h1, .prose h2, .prose h3 { 
+        color: #18181b; 
+        font-weight: 700; 
+        letter-spacing: -0.015em; 
+      }
+      
+      .prose p { 
+        margin-bottom: 1.25em; 
+        line-height: 1.75; 
+        color: #3f3f46; 
+      }
+      
+      /* Links */
+      .prose a { 
+        color: #4f46e5; 
+        text-decoration: none; 
+        font-weight: 500; 
+        transition: color 0.2s;
+      }
+      .prose a:hover { 
+        color: #4338ca; 
+        text-decoration: underline; 
+      }
       
       /* Scrollbar */
       ::-webkit-scrollbar { width: 8px; height: 8px; }

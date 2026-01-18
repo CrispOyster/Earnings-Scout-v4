@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, TrendingUp, Shield, Zap, BarChart3, ArrowRight, Activity, Layout } from 'lucide-react';
+import { Search, TrendingUp, Shield, Zap, BarChart3, ArrowRight, Activity, Layout, Check, FileText, Globe, Cpu, Lock } from 'lucide-react';
 
 interface LandingPageProps {
   onSearch: (ticker: string) => void;
@@ -185,6 +185,65 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSearch, onEnter }) =
                     </div>
                 ))}
             </div>
+        </div>
+      </section>
+
+      {/* New Key Features Section */}
+      <section className="py-24 bg-white border-t border-zinc-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+            <div className="order-2 lg:order-1">
+                <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors">
+                        <div className="w-10 h-10 bg-white rounded-lg border border-zinc-200 flex items-center justify-center mb-4 text-indigo-600 shadow-sm">
+                            <FileText className="w-5 h-5" />
+                        </div>
+                        <h4 className="font-bold text-zinc-900 mb-1">10-Q Deep Dives</h4>
+                        <p className="text-sm text-zinc-500">Instant parsing of SEC filings to find hidden liabilities.</p>
+                    </div>
+                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors">
+                        <div className="w-10 h-10 bg-white rounded-lg border border-zinc-200 flex items-center justify-center mb-4 text-indigo-600 shadow-sm">
+                            <Globe className="w-5 h-5" />
+                        </div>
+                        <h4 className="font-bold text-zinc-900 mb-1">Macro Context</h4>
+                        <p className="text-sm text-zinc-500">Connects company results with global economic trends.</p>
+                    </div>
+                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors">
+                        <div className="w-10 h-10 bg-white rounded-lg border border-zinc-200 flex items-center justify-center mb-4 text-indigo-600 shadow-sm">
+                            <Cpu className="w-5 h-5" />
+                        </div>
+                        <h4 className="font-bold text-zinc-900 mb-1">AI Valuation</h4>
+                        <p className="text-sm text-zinc-500">Automated DCF, P/E, and PEG ratio analysis models.</p>
+                    </div>
+                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors">
+                        <div className="w-10 h-10 bg-white rounded-lg border border-zinc-200 flex items-center justify-center mb-4 text-indigo-600 shadow-sm">
+                            <Lock className="w-5 h-5" />
+                        </div>
+                        <h4 className="font-bold text-zinc-900 mb-1">Insider Tracking</h4>
+                        <p className="text-sm text-zinc-500">Monitor CEO and Congressional trading activity.</p>
+                    </div>
+                </div>
+            </div>
+            <div className="order-1 lg:order-2">
+                <h2 className="text-3xl font-bold text-zinc-900 mb-6 tracking-tight">Everything you need to <br/> <span className="text-indigo-600">outperform the index.</span></h2>
+                <p className="text-lg text-zinc-500 mb-8 leading-relaxed">
+                    We don't just summarize news. We extract hard data points, cross-reference them with historical performance, and build professional-grade trade theses for every earnings event.
+                </p>
+                <ul className="space-y-4 mb-10">
+                    {[
+                        "Sentiment Analysis of Earnings Calls",
+                        "Visual Financial Health Infographics"
+                    ].map((item, i) => (
+                        <li key={i} className="flex items-center gap-3">
+                            <div className="w-5 h-5 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 shrink-0">
+                                <Check className="w-3 h-3" />
+                            </div>
+                            <span className="font-medium text-zinc-700">{item}</span>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+          </div>
         </div>
       </section>
 

@@ -12,16 +12,21 @@ export const searchEarningsData = async (ticker: string): Promise<SearchResult> 
     
     Task: Conduct a deep-dive analysis on ${ticker} (US Stock).
     
+    General Instructions:
+    - Tone: "The Smart Friend" (Conversational, witty, investigative) for analysis; "The Portfolio Manager" (Precise, tactical) for trade plans.
+    - Format: **HEAVY USE OF BULLET POINTS**. Avoid long paragraphs. Use bolding for key numbers and insights.
+    - Digestibility: Make it scannable.
+    
     You MUST use Google Search to find and analyze:
     1. The latest **Quarterly Earnings Report (10-Q/8-K)**.
     2. The latest **Earnings Call Transcript** (specifically looking for CEO/CFO quotes).
     3. The latest **Earnings Presentation** (Investor Deck).
     4. Any related analysis or reports that provide critical context.
     5. The **CURRENT Stock Price** for ${ticker}.
-    6. The current **Wall Street Analyst Consensus** (Buy/Hold/Sell and Average Price Target) from sources like MarketWatch, TipRanks, or Yahoo Finance.
+    6. The current **Wall Street Analyst Consensus**, **Forward P/E Ratio**, **PEG Ratio**, **Price to Book (P/B) Ratio**, **Debt to Equity (D/E) Ratio**, **Net Debt-to-EBITDA**, and **Return on Invested Capital (ROIC)** from sources like MarketWatch, TipRanks, or Yahoo Finance.
     7. **Major Competitors** and their current stock prices.
     8. Recent **Insider Trading** (SEC Form 4) and **Congressional Trading** activity (STOCK Act disclosures).
-    9. **Financial Metrics for DCF**: Free Cash Flow (FCF), Growth Rate estimates, and Weighted Average Cost of Capital (WACC).
+    9. **Financial Metrics**: Free Cash Flow (FCF), **Gross Margin trends**, Growth Rate estimates, and Weighted Average Cost of Capital (WACC).
 
     Output Structure:
     You must provide TWO parts in your response, separated strictly by the string "|||SPLIT|||".
@@ -57,7 +62,7 @@ export const searchEarningsData = async (ticker: string): Promise<SearchResult> 
     }
     \`\`\`
     *Note: 
-    - 'score' should be 1-10 based on the aggregate of analyses 1-7 (1=Strong Sell/Disaster, 5=Neutral, 10=Strong Buy/Euphoric).
+    - 'score' should be 1-10 based on the aggregate of analyses (1=Strong Sell/Disaster, 5=Neutral, 10=Strong Buy/Euphoric).
     - 'website' should be the main domain string (e.g. "nvidia.com", "apple.com") used to fetch a logo.
     - 'dcf' values should be numeric floats. If you cannot calculate, estimate based on analyst reports or put 0.*
 
@@ -66,53 +71,72 @@ export const searchEarningsData = async (ticker: string): Promise<SearchResult> 
     Part 2: The Full Markdown Report.
     
     # [Repeat the Title Here]
+    
+    ## ⚡ Executive TL;DR
+    (Provide 3-5 bullet points summarizing the entire situation. Make this the most important section to read).
 
-    ## Part 1: The Breakdown (Free Content)
-    Tone: "The Smart Friend" (Conversational, witty, investigative).
+    ## Part 1: The Deep Dive
 
     ### 1. The Vibe Check
-    Was the CEO confident, defensive, or evasive in the transcript? Quote a specific sentence they said and translate what they really meant.
+    *   **Mood:** Was the CEO confident, defensive, or evasive? 
+    *   **The Quote:** Quote a specific sentence they said.
+    *   **Translation:** Translate what they really meant in plain English.
 
-    ### 2. The "Red Flag" (Risk)
-    Identify the one negative thing management tried to smooth over. Explain simply why this matters.
+    ### 2. The Good (Green Flags)
+    (Use bullet points)
+    *   Point 1
+    *   Point 2
 
-    ### 3. The "Green Flag" (Catalyst)
-    What is the most impressive number or future promise? Why should a normal person care?
+    ### 3. The Bad (Red Flags)
+    (Use bullet points)
+    *   **The "Buried" Risk:** Identify the one negative thing management tried to smooth over.
+    *   **Why it matters:** Explain simply.
 
-    ### 4. Consensus Rating
-    *   **Wall Street Data:** Show the Consensus and Average Price Target.
-    *   **The "Vibe" Rating (Internal):** Your own rating based on a holistic synthesis of analyses 1-7 (Score 1-10) followed by a classification (Strong Buy / Buy / Hold / Sell / Strong Sell).
-    *   **Insight:** Explain the difference.
+    ### 4. Valuation & Health
+    (Present this as a list of "Buy" or "Sell" signals based on the data)
+    *   **Forward P/E:** [Value] (Context: Cheap/Expensive?)
+    *   **PEG Ratio:** [Value] (Context: Growth adjusted?)
+    *   **Net Debt/EBITDA:** [Value] (Context: Leverage check)
+    *   **ROIC:** [Value] (Context: Efficient?)
+    *   **Free Cash Flow:** [Value] (Context: Burning or printing cash?)
 
-    ### 5. Competitors
+    ### 5. Intrinsic Value (Simplified DCF)
+    *   **Assumptions:** FCF per share, Growth Rate, Discount Rate.
+    *   **Fair Value:** $XXX.XX
+    *   **The Verdict:** [Undervalued/Overvalued] by X%.
+
+    ### 6. Wall St. vs. Reality
+    *   **Consensus:** [Rating] w/ Target $XXX.
+    *   **Our Take:** (Score 1-10) and why we agree/disagree.
+    
+    ### 7. Competitor Check
     List 3-5 major competitors with their CURRENT stock price.
     **CRITICAL formatting instruction:** You MUST format the competitor ticker symbols as markdown links using the format \`[TICKER](#analyze-TICKER)\`.
     Example: "* **[AMD](#analyze-AMD)**: $145.20"
 
-    ### 6. Recent Insider & Congressional Trades
-    Summarize significant recent buying or selling by company insiders (executives) or members of US Congress (e.g., Nancy Pelosi, Dan Crenshaw, etc.) within the last 6 months.
-
-    ### 7. Discounted Cash Flow (DCF) Model
-    Provide a *simplified* Intrinsic Value calculation.
-    *   **Assumptions:** List Free Cash Flow (FCF) per share, Growth Rate (next 5y), and Discount Rate (WACC).
-    *   **Fair Value Estimate:** What is the calculated intrinsic value?
-    *   **Verdict:** Undervalued or Overvalued? (Include % upside/downside).
+    ### 8. Insider Moves
+    Summarize significant recent buying or selling.
 
     ---
 
-    ## Part 2: The Trade Plan (Premium)
-    Tone: "The Portfolio Manager" (Precise, professional, tactical).
+    ## Part 2: The Trade Plan
+
+    **DISCLAIMER: EDUCATIONAL PURPOSES ONLY.**
+    This report is generated by AI for informational and educational purposes only. It does not constitute financial advice, investment recommendations, or an offer to buy or sell any securities. The strategies discussed are hypothetical examples based on technical data. Options trading involves significant risk and is not suitable for all investors. You should consult with a qualified financial advisor before making any investment decisions.
     
-    Structure the response with 3 distinct trade ideas. You MUST use "###" headers for each trade to ensure correct formatting.
+    Structure the response with 3 distinct trade ideas. You MUST use "###" headers for each trade.
 
     ### Trade Idea #1: The Safe Play
-    (Provide a lower risk strategy, e.g. Covered Call, Cash Secured Put, or Buy & Hold. Include Strategy & Why).
+    *   **Strategy:** (e.g. Cash Secured Put)
+    *   **Why:** (Reasoning)
 
-    ## Trade Idea #2: The Aggressive Play
-    (Provide a higher risk/reward strategy, e.g. Long Calls, Spreads, or Breakout Plays. Include Strategy & Why).
+    ### Trade Idea #2: The Aggressive Play
+    *   **Strategy:** (e.g. Long Calls)
+    *   **Why:** (Reasoning)
 
-    ## Trade Idea #3: The Hedge / Income Play
-    (Provide a strategy for income or protection. Include Strategy & Why).
+    ### Trade Idea #3: The Hedge / Income Play
+    *   **Strategy:** (e.g. Iron Condor)
+    *   **Why:** (Reasoning)
     `;
 
     const response = await ai.models.generateContent({

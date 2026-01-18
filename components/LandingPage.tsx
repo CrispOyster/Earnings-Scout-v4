@@ -1,11 +1,40 @@
 
 import React, { useState } from 'react';
 import { Search, TrendingUp, Shield, Zap, BarChart3, ArrowRight, Activity, Layout, Check, FileText, Globe, Cpu, Lock } from 'lucide-react';
+import { Infographic } from './Infographic';
+import { InfographicData } from '../types';
 
 interface LandingPageProps {
   onSearch: (ticker: string) => void;
   onEnter: () => void;
 }
+
+const amdMockData: InfographicData = {
+  title: "Advanced Micro Devices (AMD) Q3 Analysis",
+  website: "amd.com",
+  vibe: {
+    score: 8,
+    quote: "Our data center business is on a significant growth trajectory driven by MI300 demand.",
+    analysis: "CEO Dr. Lisa Su projected extreme confidence in the AI roadmap, dismissing concerns about supply constraints."
+  },
+  redFlag: {
+    title: "Gaming Segment Drag",
+    description: "Gaming revenue collapsed 59% YoY. Management expects this weakness to persist into 2025."
+  },
+  greenFlag: {
+    title: "Data Center Hypergrowth",
+    description: "Data Center revenue hit a record $3.5B (up 122% YoY), validating the AI infrastructure thesis."
+  },
+  consensus: {
+    rating: "Strong Buy",
+    priceTarget: "$185.00"
+  },
+  dcf: {
+    fairValue: 168.40,
+    currentPrice: 142.50,
+    verdict: "Undervalued"
+  }
+};
 
 export const LandingPage: React.FC<LandingPageProps> = ({ onSearch, onEnter }) => {
   const [ticker, setTicker] = useState('');
@@ -95,11 +124,11 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSearch, onEnter }) =
                         </div>
                         <div>
                             <div className="text-xs text-zinc-500 uppercase font-bold">Vibe Score</div>
-                            <div className="text-lg font-bold text-zinc-900">8.5/10</div>
+                            <div className="text-lg font-bold text-zinc-900">8.0/10</div>
                         </div>
                     </div>
                     <div className="h-1.5 w-full bg-zinc-100 rounded-full overflow-hidden">
-                        <div className="h-full bg-emerald-500 w-[85%]"></div>
+                        <div className="h-full bg-emerald-500 w-[80%]"></div>
                     </div>
                 </div>
 
@@ -112,7 +141,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSearch, onEnter }) =
                      </div>
                      <div className="flex justify-between items-end">
                          <div className="text-3xl font-bold text-zinc-900">BUY</div>
-                         <div className="text-sm font-medium text-zinc-500 mb-1">Target: $145.00</div>
+                         <div className="text-sm font-medium text-zinc-500 mb-1">Target: $185.00</div>
                      </div>
                 </div>
 
@@ -128,18 +157,18 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSearch, onEnter }) =
                     <div className="space-y-4 font-mono text-sm">
                         <div className="flex justify-between">
                             <span className="text-zinc-400">TICKER</span>
-                            <span className="text-indigo-400 font-bold">NVDA</span>
+                            <span className="text-indigo-400 font-bold">AMD</span>
                         </div>
                         <div className="flex justify-between">
                             <span className="text-zinc-400">REVENUE_ACT</span>
-                            <span className="text-emerald-400 font-bold">$35.1B (BEAT)</span>
+                            <span className="text-emerald-400 font-bold">$6.8B (BEAT)</span>
                         </div>
                         <div className="flex justify-between">
                             <span className="text-zinc-400">GUIDANCE</span>
                             <span className="text-emerald-400 font-bold">RAISED</span>
                         </div>
                         <div className="p-3 bg-zinc-800 rounded border-l-2 border-indigo-500 text-zinc-300 text-xs leading-relaxed mt-4 italic">
-                            "Demand for Blackwell is insane. We are selling everything we can make."
+                            "Data Center revenue more than doubled. We are just getting started with MI300."
                         </div>
                     </div>
                 </div>
@@ -148,8 +177,21 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSearch, onEnter }) =
         </div>
       </section>
 
+      {/* Example Report Section */}
+      <section className="py-20 bg-zinc-50 border-y border-zinc-200">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-zinc-900 mb-3 tracking-tight">Instant Visual Intelligence</h2>
+            <p className="text-zinc-500 text-lg">Every search generates a comprehensive visual breakdown like this.</p>
+          </div>
+          <div className="pointer-events-none select-none transform scale-95 md:scale-100 transition-transform origin-top shadow-xl rounded-2xl">
+             <Infographic data={amdMockData} />
+          </div>
+        </div>
+      </section>
+
       {/* Feature Grid */}
-      <section className="py-24 bg-zinc-50 border-t border-zinc-200">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
             <div className="text-center max-w-3xl mx-auto mb-16">
                 <h2 className="text-3xl font-bold text-zinc-900 mb-4 tracking-tight">Why Retail Investors Love Us</h2>
@@ -189,34 +231,34 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onSearch, onEnter }) =
       </section>
 
       {/* New Key Features Section */}
-      <section className="py-24 bg-white border-t border-zinc-100">
+      <section className="py-24 bg-zinc-50 border-t border-zinc-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div className="order-2 lg:order-1">
                 <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors">
-                        <div className="w-10 h-10 bg-white rounded-lg border border-zinc-200 flex items-center justify-center mb-4 text-indigo-600 shadow-sm">
+                    <div className="bg-white p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors shadow-sm">
+                        <div className="w-10 h-10 bg-zinc-50 rounded-lg border border-zinc-100 flex items-center justify-center mb-4 text-indigo-600">
                             <FileText className="w-5 h-5" />
                         </div>
                         <h4 className="font-bold text-zinc-900 mb-1">10-Q Deep Dives</h4>
                         <p className="text-sm text-zinc-500">Instant parsing of SEC filings to find hidden liabilities.</p>
                     </div>
-                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors">
-                        <div className="w-10 h-10 bg-white rounded-lg border border-zinc-200 flex items-center justify-center mb-4 text-indigo-600 shadow-sm">
+                    <div className="bg-white p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors shadow-sm">
+                        <div className="w-10 h-10 bg-zinc-50 rounded-lg border border-zinc-100 flex items-center justify-center mb-4 text-indigo-600">
                             <Globe className="w-5 h-5" />
                         </div>
                         <h4 className="font-bold text-zinc-900 mb-1">Macro Context</h4>
                         <p className="text-sm text-zinc-500">Connects company results with global economic trends.</p>
                     </div>
-                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors">
-                        <div className="w-10 h-10 bg-white rounded-lg border border-zinc-200 flex items-center justify-center mb-4 text-indigo-600 shadow-sm">
+                    <div className="bg-white p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors shadow-sm">
+                        <div className="w-10 h-10 bg-zinc-50 rounded-lg border border-zinc-100 flex items-center justify-center mb-4 text-indigo-600">
                             <Cpu className="w-5 h-5" />
                         </div>
                         <h4 className="font-bold text-zinc-900 mb-1">AI Valuation</h4>
                         <p className="text-sm text-zinc-500">Automated DCF, P/E, and PEG ratio analysis models.</p>
                     </div>
-                    <div className="bg-zinc-50 p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors">
-                        <div className="w-10 h-10 bg-white rounded-lg border border-zinc-200 flex items-center justify-center mb-4 text-indigo-600 shadow-sm">
+                    <div className="bg-white p-6 rounded-2xl border border-zinc-100 hover:border-indigo-200 transition-colors shadow-sm">
+                        <div className="w-10 h-10 bg-zinc-50 rounded-lg border border-zinc-100 flex items-center justify-center mb-4 text-indigo-600">
                             <Lock className="w-5 h-5" />
                         </div>
                         <h4 className="font-bold text-zinc-900 mb-1">Insider Tracking</h4>
